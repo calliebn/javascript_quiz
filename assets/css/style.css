@@ -1,10 +1,19 @@
+/* global styles */
 :root {
     --teal: #48C9B0;
     --light: #fff;
     --grey: #515A5A;
 }
 
+.hide {
+    visibility: hidden;
+}
+
+/* styles for the timer bar at the top */
 header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
     background-color: var(--teal);
     color: var(--light);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,10 +22,14 @@ header {
 }
 
 .timer {
-    text-align: center;
     font-size: 18px;
 }
 
+.score {
+    font-size: 16px;
+}
+
+/* styles for the main container */
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -28,6 +41,12 @@ header {
     margin: 0 auto;
 }
 
+.center {
+display: flex;
+justify-content: center;
+}
+
+/* styles for the start screen */
 .start h1 {
     font-family:Arial, Helvetica, sans-serif;
     font-size: 32px;
