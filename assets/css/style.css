@@ -1,0 +1,56 @@
+:root {
+    --teal: #48C9B0;
+    --light: #fff;
+    --grey: #515A5A;
+}
+
+header {
+    background-color: var(--teal);
+    color: var(--light);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px 20px;
+    margin-bottom: 50px;
+}
+
+.timer {
+    text-align: center;
+    font-size: 18px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: space-evenly;
+    padding: 20px;
+    width: 50%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.start h1 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.start p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#start {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    background-color: var(--teal);
+    color: var(--light);
+    text-align: center;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 8px;
+    align-items: center;
+}
