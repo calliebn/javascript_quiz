@@ -1,11 +1,13 @@
 /* global styles */
 :root {
+    --ltteal: aquamarine;
     --teal: #48C9B0;
     --light: #fff;
     --grey: #515A5A;
+    --corner: 8px;
 }
 
-.hide {
+/* .hide {
     visibility: hidden;
 }
 
@@ -27,6 +29,15 @@ header {
 
 .score {
     font-size: 16px;
+}
+
+.score a {
+    color: var(--light);
+    text-decoration: none;
+}
+
+.score a:hover {
+    color: var(--grey);
 }
 
 /* styles for the main container */
@@ -70,6 +81,33 @@ justify-content: center;
     text-align: center;
     padding: 5px 20px;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--corner);
     align-items: center;
+    box-shadow: 5px 5px 5px grey;
+}
+
+#start:hover {
+    transition: 150ms;
+    transform: scale(1.03);
+    background-color: var(--ltteal);
+    color: var(--grey);
+}
+
+/* Styles for the multiple choice questions */
+.choices {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    background-color: var(--teal);
+    color: var(--light);
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    width:fit-content;
+    border-radius: var(--corner);
+}
+
+.choices:hover {
+    transition: transform 150ms;
+    transform: scale(1.03);
+    background-color: aquamarine;
+    color: var(--grey);
 }
