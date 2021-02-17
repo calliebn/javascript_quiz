@@ -4,6 +4,8 @@
     --teal: #48C9B0;
     --light: #fff;
     --grey: #515A5A;
+    --correct: green;
+    --wrong: red;
     --corner: 8px;
 }
 
@@ -34,7 +36,7 @@ p {
     line-height: 1.5;
 }
 
-/* .hide {
+.hide {
     visibility: hidden;
 }
 
@@ -111,11 +113,12 @@ justify-content: center;
     box-shadow: 5px 5px 5px grey;
 }
 
-#start:hover {
+#start:hover, #start:focus {
     transition: 150ms;
     transform: scale(1.03);
     background-color: var(--ltteal);
     color: var(--grey);
+    outline: 0;
 }
 
 /* Styles for the multiple choice questions */
@@ -135,6 +138,14 @@ justify-content: center;
     transform: scale(1.03);
     background-color: aquamarine;
     color: var(--grey);
+}
+
+.choices.correct {
+    background-color: var(--correct);
+}
+
+.choices.wrong {
+    background-color: var(--wrong);
 }
 
 @media screen and (max-width: 768px) {
