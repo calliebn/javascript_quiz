@@ -104,7 +104,7 @@ function selectAnswer(e) {
             answerElement.innerHTML = ""
             showQuestion(question[currentQuestionIndex])
         }
-    }, 3000)
+    }, 1000)
 }
 function setStatusClass(element, correct) {
 

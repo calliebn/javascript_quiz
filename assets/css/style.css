@@ -4,8 +4,8 @@
     --teal: #48C9B0;
     --light: #fff;
     --grey: #515A5A;
-    --correct: green;
-    --wrong: red;
+    --correct: #5ac18e;
+    --wrong: #f08080;
     --corner: 8px;
 }
 
