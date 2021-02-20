@@ -40,9 +40,10 @@ timeInterval = setInterval(function () {
     }
     //stores score and initials in local storage
     submitButton.addEventListener("click", (event) => {
-            event.preventDefault
+            event.preventDefault;
             localStorage.setItem('initials', initials.value)
             localStorage.setItem('time', clock+1)
+            submitButton.disabled=true
         })
 } , 1000);
 
@@ -89,7 +90,11 @@ function selectAnswer(e) {
     setStatusClass(document.body, correct)
     Array.from(answerElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
-    })
+    }) 
+    
+    if (!correct) {
+        clock-=10
+    }
     //Moving to the next question
     currentQuestionIndex++
     if (currentQuestionIndex==question.length) {
@@ -107,7 +112,7 @@ function selectAnswer(e) {
 }
 
 function setStatusClass(element, correct) {
-    clearStatusClass(element)
+    //clearStatusClass(element)
     if (correct) {
         element.classList.add('correct')
     } else {
