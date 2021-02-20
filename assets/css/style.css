@@ -85,6 +85,7 @@ header {
 .center {
 display: flex;
 justify-content: center;
+margin-bottom: 10px;
 }
 
 /* styles for the start screen  and submit button */
@@ -101,7 +102,7 @@ justify-content: center;
     margin-bottom: 20px;
 }
 
-#start, #submit {
+#start, #submit, #clear {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 18px;
     background-color: var(--teal);
@@ -114,7 +115,9 @@ justify-content: center;
     box-shadow: 5px 5px 5px grey;
 }
 
-#start:hover, #start:focus, #submit:hover, #submit:focus {
+#start:hover, #start:focus, 
+#submit:hover, #submit:focus, 
+#clear:hover, #clear:focus {
     transition: 150ms;
     transform: scale(1.03);
     background-color: var(--ltteal);

@@ -40,6 +40,7 @@ timeInterval = setInterval(function () {
     }
     //stores score and initials in local storage
     submitButton.addEventListener("click", (event) => {
+            event.preventDefault
             localStorage.setItem('initials', initials.value)
             localStorage.setItem('time', clock+1)
         })
@@ -85,6 +86,7 @@ function resetState() {
 function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
+    setStatusClass(document.body, correct)
     Array.from(answerElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
