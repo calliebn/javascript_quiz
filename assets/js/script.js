@@ -15,6 +15,10 @@ let clock = 60
 
 let endEl = document.getElementById('end-screen')
 
+const submitButton = document.getElementById('submit')
+let initials = document.getElementById('initials')
+let highScore = clock+1
+
 
 //Starts game
 startButton.addEventListener('click', startGame)
@@ -31,8 +35,14 @@ timeInterval = setInterval(function () {
     if (clock < 0) {
         clearInterval(timeInterval);
         endEl.classList.remove('hide')
+        startScreen.classList.remove('hide')
         questionsElement.classList.add('hide')
     }
+    //stores score and initials in local storage
+    submitButton.addEventListener("click", (event) => {
+            localStorage.setItem('initials', initials.value)
+            localStorage.setItem('time', clock+1)
+        })
 } , 1000);
 
 //Shows questions in a random order
@@ -198,7 +208,7 @@ const question = [
     },
 
     {
-        question: "What is it called when you turn an array into a string?",
+        question: "What is it called when you transform objects into JSON-formatted strings?",
         answers: [
             { text: 'rope', correct: false },
             { text: 'liquify', correct: false },
