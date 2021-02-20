@@ -122,7 +122,7 @@ justify-content: center;
 }
 
 /* Styles for the multiple choice questions */
-.choices {
+.btn {
     display: flex;
     flex-direction: column;
     font-family:Arial, Helvetica, sans-serif;
@@ -131,24 +131,24 @@ justify-content: center;
     color: var(--light);
     padding: 5px 20px;
     margin-bottom: 10px;
-    width:40%;
+    width:90%;
     border-radius: var(--corner);
     outline: none;
     border: none;
 }
 
-.choices:hover {
+.btn:hover {
     transition: transform 150ms;
     transform: scale(1.03);
     background-color: aquamarine;
     color: var(--grey);
 }
 
-.choices.correct {
+.btn.correct {
     background-color: var(--correct);
 }
 
-.choices.wrong {
+.btn.wrong {
     background-color: var(--wrong);
 }
 
