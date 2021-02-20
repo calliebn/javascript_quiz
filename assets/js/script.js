@@ -3,7 +3,6 @@ const startScreen = document.getElementById('start-screen')
 const questionsElement = document.getElementById('questions')
 const qElement = document.getElementById('question-title')
 const answerElement = document.getElementById('answer-buttons')
-
 let shuffledQuestions, currentQuestionIndex
 let countRightAnswers = 0
 const finalScore = document.getElementById('final-score')
@@ -12,49 +11,45 @@ const finalScore = document.getElementById('final-score')
 var timeInterval
 let timerElement = document.getElementById('time')
 let clock = 60
-
 let endEl = document.getElementById('end-screen')
-
 const submitButton = document.getElementById('submit')
 let initials = document.getElementById('initials')
-let highScore = clock+1
-
+let highScore = clock + 1
 
 //Starts game
 startButton.addEventListener('click', startGame)
-
 function startGame() {
-startButton.classList.add('hide')
-startScreen.classList.add('hide')
+    startButton.classList.add('hide')
+    startScreen.classList.add('hide')
 
-//Starts the clock
-timeInterval = setInterval(function () { 
-    timerElement.textContent = clock;
-    clock--
-    //If time runs out, stop the clock
-    if (clock < 0) {
-        clearInterval(timeInterval);
-        endEl.classList.remove('hide')
-        startScreen.classList.remove('hide')
-        questionsElement.classList.add('hide')
-    }
-    //stores score and initials in local storage
-    submitButton.addEventListener("click", (event) => {
+    //Starts the clock
+    timeInterval = setInterval(function () {
+        timerElement.textContent = clock;
+        clock--
+
+        //If time runs out, stop the clock
+        if (clock < 0) {
+            clearInterval(timeInterval);
+            endEl.classList.remove('hide')
+            startScreen.classList.remove('hide')
+            questionsElement.classList.add('hide')
+        }
+
+        //stores score and initials in local storage
+        submitButton.addEventListener("click", (event) => {
             event.preventDefault;
             localStorage.setItem('initials', initials.value)
-            localStorage.setItem('time', clock+1)
-            submitButton.disabled=true
+            localStorage.setItem('time', clock + 1)
+            submitButton.disabled = true
         })
-} , 1000);
+    }, 1000);
 
-//Shows questions in a random order
-shuffledQuestions = question.sort(() => Math.random() - .5)
-currentQuestionIndex = 0
-questionsElement.classList.remove('hide')
-setNextQuestion()
-
+    //Shows questions in a random order
+    shuffledQuestions = question.sort(() => Math.random() - .5)
+    currentQuestionIndex = 0
+    questionsElement.classList.remove('hide')
+    setNextQuestion()
 }
-
 function setNextQuestion() {
     resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
@@ -73,45 +68,46 @@ function showQuestion(question) {
         button.addEventListener('click', selectAnswer)
         answerElement.appendChild(button)
     })
-
 }
 
 //Stops buttons from duplicating
 function resetState() {
     while (answerElement.firstChild) {
         answerElement.removeChild
-        (answerElement.firstChild);
+            (answerElement.firstChild);
     }
 }
-
 function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
+
+    //setStatusClass(document.body, correct)
     Array.from(answerElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
-    }) 
-    
-    if (!correct) {
-        clock-=10
-    }
-    //Moving to the next question
-    currentQuestionIndex++
-    if (currentQuestionIndex==question.length) {
-        endEl.classList.remove('hide')
-        questionsElement.classList.add('hide')
-        clearInterval(timeInterval)
-        startScreen.classList.remove('hide')
-        finalScore.innerHTML = clock +1
-    } else {
-        //Moves questions forward
-        answerElement.innerHTML = ""
-        showQuestion(question[currentQuestionIndex])
-    }
+    })
+    setTimeout(function () {
+        if (!correct) {
+            clock -= 10
+        }
 
+        //Moving to the next question
+        currentQuestionIndex++
+        if (currentQuestionIndex == question.length) {
+            endEl.classList.remove('hide')
+            questionsElement.classList.add('hide')
+            clearInterval(timeInterval)
+            startScreen.classList.remove('hide')
+            finalScore.innerHTML = clock + 1
+        } else {
+
+            //Moves questions forward
+            answerElement.innerHTML = ""
+            showQuestion(question[currentQuestionIndex])
+        }
+    }, 3000)
 }
-
 function setStatusClass(element, correct) {
+
     //clearStatusClass(element)
     if (correct) {
         element.classList.add('correct')
@@ -119,12 +115,10 @@ function setStatusClass(element, correct) {
         element.classList.add('wrong')
     }
 }
-
 function clearStatusClass(element) {
     element.classList.remove('correct')
     element.classList.remove('wrong')
-} 
-
+}
 const question = [
     {
         question: "An array's length can be evaluated which property?",
@@ -133,10 +127,8 @@ const question = [
             { text: '.log', correct: false },
             { text: 'the console', correct: false },
             { text: '.loop', correct: false }
-
         ]
     },
-
     {
         question: "Within a loop, what can the 'break' keyword be used for?",
         answers: [
@@ -144,10 +136,8 @@ const question = [
             { text: 'exit the loop immediately', correct: true },
             { text: 'repeat the loop', correct: false },
             { text: 'indicate a stopping condition', correct: false }
-
         ]
     },
-
     {
         question: "Which symbol is a string operator?",
         answers: [
@@ -155,10 +145,8 @@ const question = [
             { text: '=', correct: false },
             { text: ':', correct: false },
             { text: '?', correct: false }
-
         ]
     },
-
     {
         question: "What is a statement?",
         answers: [
@@ -166,10 +154,8 @@ const question = [
             { text: 'a series of instructions that a computer can follow one-by one', correct: false },
             { text: 'An individual instruction or step that is part of a script', correct: true },
             { text: 'Something a celebrity releases', correct: false }
-
         ]
     },
-
     {
         question: "How do you start a single line comment in JavaScript?",
         answers: [
@@ -177,10 +163,8 @@ const question = [
             { text: '/*', correct: false },
             { text: '<!--', correct: false },
             { text: '*/', correct: false }
-
         ]
     },
-
     {
         question: "Which one is not a primitive variable?",
         answers: [
@@ -188,10 +172,8 @@ const question = [
             { text: 'number', correct: false },
             { text: 'object', correct: true },
             { text: 'boolean', correct: false }
-
         ]
     },
-
     {
         question: "In an if/else statement, where does the strictest statement go?",
         answers: [
@@ -199,10 +181,8 @@ const question = [
             { text: 'at the end', correct: false },
             { text: 'in the middle', correct: false },
             { text: 'not in an if/else statement', correct: false }
-
         ]
     },
-
     {
         question: "What does pop do?",
         answers: [
@@ -210,10 +190,8 @@ const question = [
             { text: 'removes the last element from an array', correct: true },
             { text: 'removes the first item from an array', correct: false },
             { text: 'adds an element to the front of an array', correct: false }
-
         ]
     },
-
     {
         question: "What is it called when you transform objects into JSON-formatted strings?",
         answers: [
@@ -221,7 +199,6 @@ const question = [
             { text: 'liquify', correct: false },
             { text: 'stringer', correct: false },
             { text: 'stringify', correct: true }
-
         ]
     }
 ]
