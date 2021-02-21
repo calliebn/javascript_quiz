@@ -1,6 +1,7 @@
-let name = initials
-let highScore = score
+if (window.localStorage) {
+    var winner = localStorage.getItem('initials', initials.value);
+    var score = localStorage.getItem('time', time.value);
 
-function.addEventListener(onload) {
-    event.preventDefault;
+    document.getElementById(winner)
+    document.getElementById(score)
 }

@@ -13,7 +13,7 @@ let timerElement = document.getElementById('time')
 let clock = 60
 let endEl = document.getElementById('end-screen')
 const submitButton = document.getElementById('submit')
-let initials = document.getElementById('initials')
+let initialsEl = document.getElementById('initials')
 let highScore = clock + 1
 
 //Starts game
@@ -37,11 +37,10 @@ function startGame() {
 
         //stores score and initials in local storage
         submitButton.addEventListener("click", (event) => {
-            event.preventDefault;
             localStorage.setItem('initials', initials.value)
             localStorage.setItem('time', clock + 1)
             submitButton.disabled = true
-        })
+        }) 
     }, 1000);
 
     //Shows questions in a random order
@@ -119,6 +118,25 @@ function clearStatusClass(element) {
     element.classList.remove('correct')
     element.classList.remove('wrong')
 }
+
+function saveScore() {
+    var initials = initialsEl.value();
+
+    if (initials !="") {
+        var saveScores = JSON.parse(window.localStorage.getItem("saveScores")) || [];
+
+        var updateScore = {
+            score: clock,
+            initials: initials
+        };
+
+        saveScore.push(updateScore);
+        window.localStorage.setItem(saveScores, JSON.stringify(saveScores));
+
+        window.location.href = "high_scores.html"
+    }
+}
+
 const question = [
     {
         question: "An array's length can be evaluated which property?",
