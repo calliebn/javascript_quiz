@@ -6,7 +6,7 @@ The user will answer a series of questions in under a minute. If the answer is c
 
 At the end, the user can enter their initials and have their high score captured on the high score page of the site. Unfortunately, I was not able to get that part to work.
 
-Click here to take the quiz.
+<a href="https://calliebn.github.io/javascript_quiz/">Click here</a> to take the quiz.
 
 ![start screen](/assets/images/start.png)
 
