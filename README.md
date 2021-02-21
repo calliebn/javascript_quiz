@@ -8,9 +8,18 @@ At the end, the user can enter their initials and have their high score captured
 
 Click here to take the quiz.
 
-![start screen] (assets/images/start.png)
+![start screen](/assets/images/start.png)
+
+![question screen](assets/images/question.png)
+
+![end screen](assets/images/end.png)
+
+![score screen](assets/images/score_pg.png)
 
 ## Technologies Used
 * JavaScript
 * HTML
 * CSS
+
+## Resources
+I followed a video tutorial for the basic functionality of the quiz: https://www.youtube.com/watch?v=riDzcEQbX6k
