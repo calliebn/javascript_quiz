@@ -1,7 +1,7 @@
 if (window.localStorage) {
-    var winner = localStorage.getItem('initials', initials.value);
-    var score = localStorage.getItem('time', time.value);
+    var winner = localStorage.getItem('initials');
+    var score = localStorage.getItem('time');
 
-    document.getElementById(winner)
-    document.getElementById(score)
+    document.getElementById("initials").textContent = winner
+    document.getElementById("final-score").textContent = score
 }
