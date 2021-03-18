@@ -36,11 +36,11 @@ function startGame() {
         }
 
         //stores score and initials in local storage
-        submitButton.addEventListener("click", (event) => {
-            localStorage.setItem('initials', initials.value)
-            localStorage.setItem('time', clock + 1)
-            submitButton.disabled = true
-        }) 
+        //submitButton.addEventListener("click", (event) => {
+            // localStorage.setItem('initials', initials.value)
+            // localStorage.setItem('time', clock + 1)
+            //submitButton.disabled = true
+       // })
     }, 1000);
 
     //Shows questions in a random order
@@ -120,22 +120,24 @@ function clearStatusClass(element) {
 }
 
 function saveScore() {
-    var initials = initialsEl.value();
+    var initials = initialsEl.value;
 
-    if (initials !="") {
-        var saveScores = JSON.parse(window.localStorage.getItem("saveScores")) || [];
+    if (initials != "") {
+        var prevScores = JSON.parse(localStorage.getItem("saveScores")) || [];
 
         var updateScore = {
             score: clock,
             initials: initials
         };
 
-        saveScore.push(updateScore);
-        window.localStorage.setItem(saveScores, JSON.stringify(saveScores));
+        prevScores.push(updateScore);
+        console.log(prevScores)
+        localStorage.setItem("saveScores", JSON.stringify(prevScores));
 
-        window.location.href = "high_scores.html"
+        location.href = "high_scores.html"
     }
 }
+submitButton.addEventListener('click', saveScore)
 
 const question = [
     {
