@@ -96,7 +96,7 @@ function selectAnswer(e) {
             questionsElement.classList.add('hide')
             clearInterval(timeInterval)
             startScreen.classList.remove('hide')
-            finalScore.innerHTML = clock + 1
+            finalScore.innerHTML = clock
         } else {
 
             //Moves questions forward

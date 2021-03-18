@@ -156,6 +156,17 @@ margin-bottom: 10px;
     background-color: var(--wrong);
 }
 
+#score-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
 @media screen and (max-width: 768px) {
     .wrapper {
         width: 80%;
