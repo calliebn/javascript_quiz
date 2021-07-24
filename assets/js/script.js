@@ -37,10 +37,10 @@ function startGame() {
 
         //stores score and initials in local storage
         //submitButton.addEventListener("click", (event) => {
-            // localStorage.setItem('initials', initials.value)
-            // localStorage.setItem('time', clock + 1)
-            //submitButton.disabled = true
-       // })
+        // localStorage.setItem('initials', initials.value)
+        // localStorage.setItem('time', clock + 1)
+        //submitButton.disabled = true
+        // })
     }, 1000);
 
     //Shows questions in a random order
@@ -141,7 +141,7 @@ submitButton.addEventListener('click', saveScore)
 
 const question = [
     {
-        question: "An array's length can be evaluated which property?",
+        question: "An array's length can be evaluated using which property?",
         answers: [
             { text: '.length', correct: true },
             { text: '.log', correct: false },
